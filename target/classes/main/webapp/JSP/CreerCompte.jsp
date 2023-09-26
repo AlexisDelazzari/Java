@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Formulaire de création d'un compte</title>
-<link rel="stylesheet" href="/_00_ASBank2018/style/style.css" />
+<link rel="stylesheet" href="/ASBank-2018/style/style.css" />
 <script src="/_00_ASBank2018/js/jquery.js"></script>
 <script src="/_00_ASBank2018/js/jsCreerCompte.js"></script>
 </head>
@@ -32,7 +32,7 @@
 		<s:submit name="Retour" value="Retour" />
 	</s:form>
 
-	<s:if test="result"> 
+	<s:if test="result">
 		<s:if test="!error">
 			<div class="success">
 				<s:property value="message" />

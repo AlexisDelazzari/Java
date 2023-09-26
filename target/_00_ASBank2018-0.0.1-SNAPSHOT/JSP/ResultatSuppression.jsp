@@ -7,7 +7,7 @@
 <head>
 <title>Résultat de la suppression</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/_00_ASBank2018/style/style.css" />
+<link rel="stylesheet" href="/ASBank-2018/style/style.css" />
 </head>
 <body>
 
@@ -35,9 +35,9 @@
 					<br />Les comptes suivants ont un solde différent de zéro : <br />
 					<ul>
 						<s:iterator value="client.comptesAvecSoldeNonNul">
-							<li><s:property value="value" /> (<s:property value="value.solde" />)</li>	
+							<li><s:property value="value" /> (<s:property value="value.solde" />)</li>
 						</s:iterator>
-					</ul>	
+					</ul>
 				</s:else>
 			</s:if>
 			<s:else>

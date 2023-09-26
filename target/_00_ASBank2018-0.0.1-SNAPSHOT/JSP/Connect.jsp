@@ -7,7 +7,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Tableau de bord</title>
-<link rel="stylesheet" href="/_00_ASBank2018/style/style.css" />
+<link rel="stylesheet" href="/ASBank-2018/style/style.css" />
 </head>
 <body>
 	<div class="btnLogout">
@@ -30,7 +30,7 @@
 		<s:iterator value="accounts">
 			<tr>
 				<td><s:url action="urlDetail" var="urlDetail">
-						<s:param name="compte"><s:property value="key" /></s:param> 
+						<s:param name="compte"><s:property value="key" /></s:param>
 						<%-- <s:param name="idCompte"><s:property value="key" /></s:param> --%>
 					</s:url> <s:a href="%{urlDetail}">
 						<s:property value="key" />

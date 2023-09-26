@@ -9,7 +9,7 @@
 	<!-- * Fichier de configuration du Framework STRUTS * -->
 	<!-- ************************************************ -->
 
-	<!-- Permet d'activer le mode de developpement. Celui-ci donne des informations 
+	<!-- Permet d'activer le mode de developpement. Celui-ci donne des informations
 		supplémentaires. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -20,7 +20,7 @@
 		<!-- 2ème paramètre indique la class elle-même -->
 		<!-- 3ème paramètre indique la méthode à lancer -->
 		<!-- Un succès redirige vers une page comportant le nom de la class -->
-		<!-- Un echec redirige vers une page comportant le nom de la class prefixée 
+		<!-- Un echec redirige vers une page comportant le nom de la class prefixée
 			par '-error' -->
 		<!-- Toutes les combinaisons sont donc possibles -->
 
@@ -30,7 +30,7 @@
 			<result name="ERROR">/JSP/{2}-error.jsp</result>
 			<result name="LISTCLIENTS">/JSP/ListClients.jsp</result>
 			<result>/JSP/{2}.jsp</result>
-			<!-- <result name="LOGIN">Login.jsp</result> -->
+			 <result name="LOGIN">Login.jsp</result>
 			<result name="MULTI">Multiple.jsp</result>
 			<result name="FAILED">Failed.jsp</result>
 		</action>
@@ -77,7 +77,7 @@
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="compteInfo">%{compteInfo}</param>
 				<param name="client">%{client.userId}</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
@@ -86,7 +86,7 @@
 				<param name="compte">%{compte}</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">TECHNICAL</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
@@ -95,7 +95,7 @@
 				<param name="compte">%{compte}</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">NONEMPTYACCOUNT</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
@@ -106,7 +106,7 @@
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="userInfo">%{userInfo}</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -114,7 +114,7 @@
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">TECHNICAL</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -122,7 +122,7 @@
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">NONEMPTYACCOUNT</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -162,7 +162,7 @@
 			</result>
 		</action>
 
-		
+
 		<!-- Création de compte -->
 		<action name="addAccount" class="com.iut.banque.controller.CreerCompte"
 			method="creationCompte">
@@ -231,7 +231,7 @@
 				<param name="error">NEGATIVEAMOUNT</param>
 			</result>
 		</action>
-		
+
 		<action name="creditActionEdit" class="com.iut.banque.controller.DetailCompteEdit"
 			method="credit">
 			<result name="SUCCESS" type="redirectAction">

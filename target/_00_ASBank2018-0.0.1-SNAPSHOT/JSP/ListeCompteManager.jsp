@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<!--  Définition variables de début 
+<!--  Définition variables de début
 <s:set var="aDecouvertTag" value="aDecouvert" />
 <s:if test="%{#bool_val == true}">
     TRUE</s:if>
@@ -17,7 +17,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Liste des comptes de la banque</title>
-<link rel="stylesheet" href="/_00_ASBank2018/style/style.css" />
+<link rel="stylesheet" href="/ASBank-2018/style/style.css" />
 </head>
 <body>
 	<div class="btnLogout">

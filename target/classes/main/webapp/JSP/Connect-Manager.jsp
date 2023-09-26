@@ -6,7 +6,7 @@
 <head>
 <title>Tableau de bord - Gestionnaire</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet" href="/_00_ASBank2018/style/style.css" />
+<link rel="stylesheet" href="/ASBank-2018/style/style.css" />
 </head>
 <body>
 	<div class="btnLogout">
@@ -15,7 +15,7 @@
 		</s:form>
 	</div>
 	<h1>Tableau de bord - Gestionnaire</h1>
-	
+
 	<p>Bienvenue <b><s:property value="connectedUser.prenom" /> <s:property value="connectedUser.nom" /></b> !</p>
 	<p>Que voulez vous faire ?</p>
 	<p>

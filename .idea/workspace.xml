@@ -41,7 +41,7 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "MavenSettings",
+    "settings.editor.selected.configurable": "preferences.keymap",
     "spring.configuration.checksum": "f16cac87daadda926b9580ca789ed58b",
     "vue.rearranger.settings.migration": "true"
   }
@@ -51,6 +51,7 @@
       <recent name="D:\qualitedev\_00_ASBank2018\src\main\webapp\WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\qualitedev\_00_ASBank2018\src\main\webapp\WEB-INF\classes" />
       <recent name="D:\qualitedev\_00_ASBank2018\src\main\resources" />
     </key>
   </component>
