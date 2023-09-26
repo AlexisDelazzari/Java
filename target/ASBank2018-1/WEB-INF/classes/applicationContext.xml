@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <!-- Configuration du composant Struts2 -->
+    <bean id="struts2" class="org.apache.struts2.dispatcher.Dispatcher" />
+
+    <!-- Activation de l'annotation-driven (pour les annotations Spring MVC) -->
+    <mvc:annotation-driven />
+
+    <!-- Spécifiez le package de base pour la recherche des composants Spring -->
+    <context:component-scan base-package="com.iut.banque" />
+
+    <!-- Définissez ici vos autres beans Spring -->
+
+    <!-- Configurations supplémentaires, par exemple : -->
+    <!--
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/mydatabase" />
+        <property name="username" value="root" />
+        <property name="password" value="password" />
+    </bean>
+    -->
+
+</beans>
