@@ -4,109 +4,112 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78cad69e-87f2-458e-ae73-999c62d7c05d" name="Changes" comment="" />
+    <list default="true" id="57a47a7b-8ea9-491f-8d3e-e1b194f95373" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
-    <execution />
-  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 1
+  &quot;associatedIndex&quot;: 3
 }</component>
-  <component name="ProjectId" id="2Vc9nP5YAjquRKrVlxDxRSDX1Jk" />
+  <component name="ProjectId" id="2VvHreNIfy5oA7AeFxNNBPj0lwg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/qualitedev/_00_ASBank2018/src/main/webapp/WEB-INF",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.keymap",
-    "spring.configuration.checksum": "f16cac87daadda926b9580ca789ed58b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;1.8&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hugot/Desktop/Qualite-dev/src&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\qualitedev\_00_ASBank2018\src\main\webapp\WEB-INF" />
+      <recent name="C:\Users\hugot\Desktop\Qualite-dev\src" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\qualitedev\_00_ASBank2018\src\main\webapp\WEB-INF\classes" />
-      <recent name="D:\qualitedev\_00_ASBank2018\src\main\resources" />
+      <recent name="C:\Users\hugot\Desktop\Qualite-dev\photos\38" />
+      <recent name="C:\Users\hugot\Desktop\Qualite-dev" />
     </key>
   </component>
-  <component name="RunAnythingCache">
-    <option name="myCommands">
-      <command value="mvn clean install -D skip test" />
-      <command value="mvn clean install -DSkipTest" />
-      <command value="mvn clean install -DskipTests" />
-      <command value="mvn clean install deploy:tomcat7 -DskipTests" />
-      <command value="mvn tomcat7:deploy -DskipTests  -X" />
-      <command value="mvn test" />
-      <command value="mvn clean" />
-      <command value="mvn install -DskipTests" />
-      <command value="mvn test -DskipTests" />
-      <command value="mvn mvn package -DskipTests" />
-      <command value="mvn package -DskipTests" />
-      <command value="mvn site -DskipTests" />
-      <command value="mvn clean install tomcat7:deploy -DskipTests " />
-    </option>
-  </component>
   <component name="RunManager">
-    <configuration name="TestsCompteSansDecouvert" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="_00_ASBank2018" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.iut.banque.test.modele.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="C:/Program Files/Java/jdk-18.0.2.1" />
-      <option name="PACKAGE_NAME" value="com.iut.banque.test.modele" />
-      <option name="MAIN_CLASS_NAME" value="com.iut.banque.test.modele.TestsCompteSansDecouvert" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="_00_ASBank2018 [clean,install]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings">
+          <MavenRunnerSettings>
+            <option name="delegateBuildToMaven" value="false" />
+            <option name="environmentProperties">
+              <map />
+            </option>
+            <option name="jreName" value="#USE_PROJECT_JDK" />
+            <option name="mavenProperties">
+              <map />
+            </option>
+            <option name="passParentEnv" value="true" />
+            <option name="runMavenInBackground" value="true" />
+            <option name="skipTests" value="true" />
+            <option name="vmOptions" value="" />
+          </MavenRunnerSettings>
+        </option>
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="cmdOptions" />
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list>
+                <option value="clean" />
+                <option value="install" />
+              </list>
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
     </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\Justin\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\hugot\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="78cad69e-87f2-458e-ae73-999c62d7c05d" name="Changes" comment="" />
-      <created>1695124672739</created>
+      <changelist id="57a47a7b-8ea9-491f-8d3e-e1b194f95373" name="Changes" comment="" />
+      <created>1695709835047</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1695124672739</updated>
-      <workItem from="1695124675844" duration="959000" />
-      <workItem from="1695125666273" duration="1915000" />
-      <workItem from="1695127616329" duration="469000" />
+      <updated>1695709835047</updated>
+      <workItem from="1695709836605" duration="1027000" />
+      <workItem from="1695716829117" duration="1166000" />
+      <workItem from="1695720518093" duration="984000" />
+      <workItem from="1695726589480" duration="162000" />
+      <workItem from="1695727110374" duration="1018000" />
+      <workItem from="1695735870234" duration="1754000" />
+      <workItem from="1695738033395" duration="629000" />
     </task>
     <servers />
   </component>

@@ -26,7 +26,7 @@ import com.iut.banque.modele.Utilisateur;
 
 /**
  * Class de test pour la DAO.
- *
+ * 
  * L'annotation @Rollback n'est pas nécéssaire partout car par défaut elle est
  * true pour les méthodes de test.
  */
@@ -35,7 +35,7 @@ import com.iut.banque.modele.Utilisateur;
 // @ContextConfiguration permet de charger le context utilisé pendant les tests.
 // Par défault (si aucun argument n'est précisé), cherche le fichier
 // TestsDaoHibernate-context.xml dans le même dosssier que la classe
-@ContextConfiguration("../../test/resources/TestsDaoHibernate-context.xml")
+@ContextConfiguration("/test/resources/TestsDaoHibernate-context.xml")
 @Transactional("transactionManager")
 public class TestsDaoHibernate {
 
