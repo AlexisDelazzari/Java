@@ -13,6 +13,9 @@
   <component name="ComposerSettings">
     <execution />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -29,6 +32,7 @@
     "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "D:/qualitedev/_00_ASBank2018/src/main/webapp/WEB-INF",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -37,17 +41,34 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "build.tools",
+    "settings.editor.selected.configurable": "MavenSettings",
     "spring.configuration.checksum": "f16cac87daadda926b9580ca789ed58b",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\qualitedev\_00_ASBank2018\src\main\webapp\WEB-INF" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\qualitedev\_00_ASBank2018\src\main\resources" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn clean install -D skip test" />
       <command value="mvn clean install -DSkipTest" />
-      <command value="mvn install -DskipTests" />
       <command value="mvn clean install -DskipTests" />
+      <command value="mvn clean install deploy:tomcat7 -DskipTests" />
+      <command value="mvn tomcat7:deploy -DskipTests  -X" />
+      <command value="mvn test" />
+      <command value="mvn clean" />
+      <command value="mvn install -DskipTests" />
+      <command value="mvn test -DskipTests" />
+      <command value="mvn mvn package -DskipTests" />
+      <command value="mvn package -DskipTests" />
+      <command value="mvn site -DskipTests" />
+      <command value="mvn clean install tomcat7:deploy -DskipTests " />
     </option>
   </component>
   <component name="RunManager">

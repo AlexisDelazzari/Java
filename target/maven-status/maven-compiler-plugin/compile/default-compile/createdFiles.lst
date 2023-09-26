@@ -19,6 +19,7 @@ com\iut\banque\controller\CreerCompte.class
 com\iut\banque\exceptions\IllegalOperationException.class
 com\iut\banque\modele\Client.class
 com\iut\banque\exceptions\TechnicalException.class
+com\iut\banque\HelloWorldAction.class
 com\iut\banque\dao\DaoHibernate.class
 com\iut\banque\converter\AccountConverter.class
 com\iut\banque\modele\Utilisateur.class
