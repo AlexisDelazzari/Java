@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="_00_ASBank2023:war" />
+      <artifact name="_00_ASBank2023:war exploded" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
@@ -60,6 +60,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2002" />
     <option name="y" value="139" />
@@ -148,23 +152,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "justinTest",
-    "last_opened_file_path": "C:/Users/adela/OneDrive/Bureau/BUT3/javaCorrection/_00_ASBank2023",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Subversion",
-    "spring.configuration.checksum": "6e8192a281ac5e382652e63ae2f9cbfe",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;justinTest&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/qualitedev/newASbanque/Java&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;6e8192a281ac5e382652e63ae2f9cbfe&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\IUT\_2023-2024-BUT\BUT3 - R5.A.08 - Qualité Dev\_00_ASBank2023\WebContent" />
@@ -180,9 +185,10 @@
     <option name="myCommands">
       <command value="mvn " />
       <command value="mvn clean install" />
+      <command value="mvn compile" />
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.80">
     <configuration name="TestsDaoHibernate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="_00_ASBank2023" />
       <extension name="coverage">
@@ -263,14 +269,19 @@
     <configuration name="Tomcat 9.0.80" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.80" ALTERNATIVE_JRE_ENABLED="true" ALTERNATIVE_JRE_PATH="1.8" nameIsGenerated="true">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
+        <artifact name="_00_ASBank2023:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/_00_ASBank2023_war" />
+          </settings>
+        </artifact>
         <artifact name="_00_ASBank2023:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/_00_ASBank2023" />
+            <option name="CONTEXT_PATH" value="/_00_ASBank2023_war_exploded" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="50e12a94-e4ec-4c41-bff8-de86d6899f19" />
+        <option name="BASE_DIRECTORY_NAME" value="2bc6c8d8-f88d-4bd9-8fe1-9e5fba445434" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -278,7 +289,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50268" />
+        <option name="DEBUG_PORT" value="32244" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -344,6 +355,7 @@
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
           <artifact name="_00_ASBank2023:war exploded" />
+          <artifact name="_00_ASBank2023:war" />
         </option>
       </method>
     </configuration>
@@ -383,6 +395,7 @@
       <workItem from="1696188773643" duration="6000" />
       <workItem from="1696188943559" duration="396000" />
       <workItem from="1696189493570" duration="596000" />
+      <workItem from="1697879862480" duration="634000" />
     </task>
     <servers />
   </component>
