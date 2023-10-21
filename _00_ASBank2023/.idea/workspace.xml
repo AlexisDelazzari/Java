@@ -15,6 +15,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
   <component name="DefaultGradleProjectSettings">
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
@@ -149,6 +152,8 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "git-widget-placeholder": "justinTest",
     "last_opened_file_path": "C:/Users/adela/OneDrive/Bureau/BUT3/javaCorrection/_00_ASBank2023",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -171,7 +176,44 @@
       <recent name="C:\Users\hugot\Desktop\Qualite-dev\src" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.Tomcat 9.0.80">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn " />
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestsDaoHibernate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="_00_ASBank2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iut.banque.test.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iut.banque.test.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.iut.banque.test.dao.TestsDaoHibernate" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestsDaoHibernate.testGetAccountByIdExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="_00_ASBank2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.iut.banque.test.dao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.iut.banque.test.dao" />
+      <option name="MAIN_CLASS_NAME" value="com.iut.banque.test.dao.TestsDaoHibernate" />
+      <option name="METHOD_NAME" value="testGetAccountByIdExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="_00_ASBank2023 [clean,install...]" type="MavenRunConfiguration" factoryName="Maven" nameIsGenerated="true">
       <MavenSettings>
         <option name="myGeneralSettings" />
@@ -193,6 +235,7 @@
         </option>
         <option name="myRunnerParameters">
           <MavenRunnerParameters>
+            <option name="cmdOptions" />
             <option name="profiles">
               <set />
             </option>
@@ -206,6 +249,9 @@
             <option name="pomFileName" />
             <option name="profilesMap">
               <map />
+            </option>
+            <option name="projectsCmdOptionValues">
+              <list />
             </option>
             <option name="resolveToWorkspace" value="false" />
             <option name="workingDirPath" value="$PROJECT_DIR$" />
@@ -302,13 +348,21 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.TestsDaoHibernate" />
+      <item itemvalue="JUnit.TestsDaoHibernate.testGetAccountByIdExist" />
       <item itemvalue="Maven._00_ASBank2023 [clean,install...]" />
       <item itemvalue="Tomcat Server.Tomcat 9.0.80" />
     </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestsDaoHibernate.testGetAccountByIdExist" />
+        <item itemvalue="JUnit.TestsDaoHibernate" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration" cleanupOnStartRun="true">
-    <configuration>C:\Users\adela\AppData\Roaming\Subversion</configuration>
+    <configuration>C:\Users\Justin\AppData\Roaming\Subversion</configuration>
     <supportedVersion>125</supportedVersion>
   </component>
   <component name="TaskManager">
