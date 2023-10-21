@@ -1,6 +1,6 @@
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompteSansDecouvert.java
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompte.java
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\dao\TestsDaoHibernate.java
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsClient.java
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\facade\TestsBanqueManager.java
-C:\Users\adela\OneDrive\Bureau\BUT3\javaCorrection\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompteAvecDecouvert.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsClient.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompte.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompteSansDecouvert.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\facade\TestsBanqueManager.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\dao\TestsDaoHibernate.java
+D:\qualitedev\Java\_00_ASBank2023\src\test\java\com\iut\banque\test\modele\TestsCompteAvecDecouvert.java
