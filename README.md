@@ -33,12 +33,54 @@ Il nous fallu aussi installer le fichier bin de maven, pour cela nous avons tél
 Pour installer les dépendances nécessaires au sein du dossier on compile avec la commande :  
 & mvn compile -f {lien vers le pom.xml}
 
-## installation du projet
+## Installation de MySQL
+
+Vous devez installer la version 5.1.44. de [MySQL](https://downloads.mysql.com/archives/community/)
+
+Lors de l'installation laissez toutes les options par défauts. Mettez root pour l'utilisateur et pour le mot de passe.
+
+## Lancement de MySQL
+
+Lancer MySQL Command Line Client, saisissez ensuite le mot de passer pour accéder à l'invite de commande MySQL.
+
+Créez la base de données en utilisant la commande :
+
+- CREATE DATABASE banque;
+
+puis selectionner cette base de données avec la commande :
+
+- USE banque;
+
+Importez les tables et les données, en utilisant le fichier "dumpSQL.sql" dans le dossier "script", copiez tout son contenue {controle A puis controle C} puis collez-le dans l'invite de commande MySQL {controle V}
+
+Il faut ensuite installer la base de test : 
+
+- Create database banqueiuttest;
+- use banqueiuttest;
+- Copier le contenue du fichier "src/dumpSQL_JUnitTest.sql"
+
+## Installation du projet
 
 Pour installer notre projet Java nous allons utiliser la ligne de commande suivante : 
-- mvn clean install -DskipTests
+- mvn clean install
 
 Cette commande va crée un dossier "target" avec notre projet java a l'intérieur ainsi qu'un .war qui va nous permettre d'importer notre projet sur tomcat.
+
+Une fois cela fait, ouvrir le fichier "applicationContext" situé dans "WebContent/WEB-INF", aller a la lige 49 et remplacer cette igne par :
+
+- `<property name="url" value="jdbc:mysql://localhost:3306/banque?useSSL=false" />`
+
+En haut d'IntelliJ, appuyez sur la flèche bleue, puis sur "Edit Configurations".
+Si Tomcat n'est pas affiché, appuyez sur le bouton "+" en haut à gauche et sélectionnez Tomcat.
+
+Dans le déploiement, appuyez sur le "+" et sélectionnez l'artifact : "war:exploded".
+
+Changer la configurations, pour cela mettez :
+
+- HTPP port: 8080
+- JMX port : 1099
+
+Puis lancer tomcat et conecter-vous avec les identifiants : "rootpass" et "root".
 
 ## Initialisation de Tomcat
 
@@ -49,41 +91,7 @@ Il vous faut installer [Tomcat](https://tomcat.apache.org/download-90.cgi), de l
 
 Une fois tomcat installer nous nous rendont dans le fichier tomcat-user.xml qui se trouve dans le fichier conf, une fois dans ce fichier on décommente et modifier la partie uername et password. Une fois cela fait nous allons pouvoir ajouter le .war préalablement générer ce qui va crée un répertoire au sein du serveur.
 
-## Installation de MySQL 
 
-Vous devez installer la version 5.1.44. de [MySQL](https://downloads.mysql.com/archives/community/)
-
-Lors de l'installation laissez toutes les options par défauts. Mettez root pour l'utilisateur et pour le mot de passe.
-
-## Lancement de MySQL 
-
-Lancer MySQL Command Line Client, saisissez ensuite le mot de passer pour accéder à l'invite de commande MySQL.
-
-Créez la base de données en utilisant la commande : 
-
-- CREATE DATABASE banque;
-
-puis selectionner cette base de données avec la commande : 
-
-- USE banque; 
-
-Importez les tables et les données, en utilisant le fichier "dumpSQL.sql" dans le dossier "script", copiez tout son contenue {controle A puis controle C} puis collez-le dans l'invite de commande MySQL {controle V} 
-
-Une fois cela fait, ouvrir le fichier "applicationContext" situé dans "WebContent/WEB-INF", aller a la lige 49 et remplacer cette igne par : 
-
-- `<property name="url" value="jdbc:mysql://localhost:3306/banque?useSSL=false" />` 
-
-En haut d'IntelliJ, appuyez sur la flèche bleue, puis sur "Edit Configurations".
-Si Tomcat n'est pas affiché, appuyez sur le bouton "+" en haut à gauche et sélectionnez Tomcat.
-
-Dans le déploiement, appuyez sur le "+" et sélectionnez l'artifact : "war:exploded".
-
-Changer la configurations, pour cela mettez : 
-
-- HTPP port: 8080 
-- JMX port : 1099
-
-Puis lancer tomcat et conecter-vous avec les identifiants : "rootpass" et "root".
 
 ## Différence poids
 
