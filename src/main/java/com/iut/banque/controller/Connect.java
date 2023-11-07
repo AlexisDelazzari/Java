@@ -15,7 +15,6 @@ import com.iut.banque.modele.Compte;
 import com.iut.banque.modele.Utilisateur;
 
 public class Connect extends ActionSupport {
-
 	private static final long serialVersionUID = 1L;
 	private String userCde;
 	private String userPwd;
