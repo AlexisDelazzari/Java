@@ -4,6 +4,7 @@ import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
@@ -20,6 +21,7 @@ public class Connect extends ActionSupport {
 	private String userCde;
 	private String userPwd;
 	private BanqueFacade banque;
+
 
 	/**
 	 * Constructeur de la classe Connect
@@ -44,7 +46,7 @@ public class Connect extends ActionSupport {
 	 */
 	public String login() {
 		System.out.println("Essai de login - 20180512...");
-		System.out.println("userPwd : " + BCrypt.hashpw(userPwd, BCrypt.gensalt()));
+
 		if (userCde == null || userPwd == null) {
 			return "ERROR";
 		}

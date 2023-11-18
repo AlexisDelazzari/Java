@@ -4,10 +4,13 @@ import com.iut.banque.constants.LoginConstants;
 import com.iut.banque.interfaces.IDao;
 import com.iut.banque.modele.Gestionnaire;
 import com.iut.banque.modele.Utilisateur;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class LoginManager {
 
 	private IDao dao;
+
+	private String salt;
 	private Utilisateur user;
 
 	/**
@@ -37,7 +40,9 @@ public class LoginManager {
 	 *         l'état du login
 	 */
 	public int tryLogin(String userCde, String userPwd) {
-		if (dao.isUserAllowed(userCde, userPwd)) {
+		String userHashPwd = BCrypt.hashpw(userPwd, salt);
+
+		if (dao.isUserAllowed(userCde, userHashPwd)) {
 			user = dao.getUserById(userCde);
 			if (user instanceof Gestionnaire) {
 				return LoginConstants.MANAGER_IS_CONNECTED;
@@ -77,5 +82,9 @@ public class LoginManager {
 	public void logout() {
 		this.user = null;
 		dao.disconnect();
+	}
+
+	public void setSalt(String salt) {
+		this.salt = salt;
 	}
 }

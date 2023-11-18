@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `nom` varchar(45) NOT NULL,
   `prenom` varchar(45) NOT NULL,
   `adresse` varchar(100) NOT NULL,
-  `userPwd` varchar(45) DEFAULT NULL,
+  `userPwd` varchar(100) DEFAULT NULL,
   `male` bit(1) NOT NULL,
   `type` varchar(10) NOT NULL,
   `numClient` varchar(45) DEFAULT NULL,
@@ -68,10 +68,10 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
 --
 
 INSERT INTO `Utilisateur` (`userId`, `nom`, `prenom`, `adresse`, `userPwd`, `male`, `type`, `numClient`) VALUES
-('a', 'a', 'a', 'a', 'a', b'1', 'MANAGER', NULL),
-('admin', 'Smith', 'Joe', '123, grande rue, Metz', 'adminpass', b'1', 'MANAGER', ''),
-('client1', 'client1', 'Jane', '45, grand boulevard, Brest', 'clientpass1', b'1', 'CLIENT', '123456789'),
-('client2', 'client2', 'Jane', '45, grand boulevard, Brest', 'clientpass2', b'1', 'CLIENT', '123456788');
+('a', 'a', 'a', 'a', 'a', b'1', 'MANAGER', NULL), --
+('admin', 'Smith', 'Joe', '123, grande rue, Metz', '$2a$12$x5cQXEeW7yl6iTHOR9b1.OS7jkv3zoy1v1eBe1kBkiszvhtp.kkvm', b'1', 'MANAGER', ''), -- mdp chiffré = $2a$12$x5cQXEeW7yl6iTHOR9b1.OS7jkv3zoy1v1eBe1kBkiszvhtp.kkvm
+('client1', 'client1', 'Jane', '45, grand boulevard, Brest', '$2a$12$x5cQXEeW7yl6iTHOR9b1.O0c7X.hyhA8CiDkY/0FhRYO3LP7DW79q', b'1', 'CLIENT', '123456789'), -- mdp chiffré = $2a$12$x5cQXEeW7yl6iTHOR9b1.O0c7X.hyhA8CiDkY/0FhRYO3LP7DW79q
+('client2', 'client2', 'Jane', '45, grand boulevard, Brest', '$2a$12$x5cQXEeW7yl6iTHOR9b1.OlKdpWCNvDXZVeFfYbVDj66n7KRsvFOW', b'1', 'CLIENT', '123456788'); -- mdp chiffré = $2a$12$x5cQXEeW7yl6iTHOR9b1.OlKdpWCNvDXZVeFfYbVDj66n7KRsvFOW
 
 --
 -- Constraints for dumped tables

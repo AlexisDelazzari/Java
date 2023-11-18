@@ -11,6 +11,8 @@ import com.iut.banque.exceptions.TechnicalException;
 import com.iut.banque.facade.BanqueFacade;
 import com.opensymphony.xwork2.ActionSupport;
 
+import java.io.InputStream;
+import java.util.Properties;
 public class CreerUtilisateur extends ActionSupport {
 
 	private static final long serialVersionUID = 1L;
@@ -146,6 +148,23 @@ public class CreerUtilisateur extends ActionSupport {
 		this.numClient = numClient;
 	}
 
+	private static final String CONFIG_FILE = "config.properties";
+	private static Properties properties;
+
+	static {
+		properties = new Properties();
+		try (InputStream input = CreerUtilisateur.class.getClassLoader().getResourceAsStream(CONFIG_FILE)) {
+			properties.load(input);
+		} catch (Exception e) {
+			// Gérez les exceptions appropriées en fonction de votre application
+			e.printStackTrace();
+		}
+	}
+
+	private String salt;
+
+
+
 	/**
 	 * Constructeur sans paramêtre de CreerUtilisateur
 	 */
@@ -154,6 +173,9 @@ public class CreerUtilisateur extends ActionSupport {
 		ApplicationContext context = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
 		this.banque = (BanqueFacade) context.getBean("banqueFacade");
+
+		// Utilisez la propriété chargée
+		this.salt = properties.getProperty("hash.salt");
 	}
 
 	/**
@@ -201,10 +223,11 @@ public class CreerUtilisateur extends ActionSupport {
 	 */
 	public String creationUtilisateur() {
 		try {
+			String userHashPwd = BCrypt.hashpw(userPwd, salt);
 			if (client) {
-				banque.createClient(userId, userPwd, nom, prenom, adresse, male, numClient);
+				banque.createClient(userId, userHashPwd, nom, prenom, adresse, male, numClient);
 			} else {
-				banque.createManager(userId, userPwd, nom, prenom, adresse, male);
+				banque.createManager(userId, userHashPwd, nom, prenom, adresse, male);
 			}
 			this.message = "Le nouvel utilisateur avec le user id '" + userId + "' a bien été crée.";
 			this.result = "SUCCESS";

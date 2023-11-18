@@ -78,6 +78,7 @@
 	<!-- Injection de la Dao dans le LoginManager par le setter -->
 	<bean id="loginManager" class="com.iut.banque.facade.LoginManager">
 		<property name="dao" ref="daoHibernate" />
+		<property name="salt" value="${hash.salt}" />
 	</bean>
 
 	<!-- ============= Converter ============= -->
