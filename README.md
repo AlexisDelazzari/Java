@@ -105,6 +105,10 @@ Confidentialité : Le dossier .idea peut contenir des informations sensibles tel
 
 Compatibilité : Les fichiers de configuration contenus dans le dossier .idea sont spécifiques à l'environnement de développement local de l'utilisateur. Les inclure dans la source peut entraîner des problèmes de compatibilité lorsque d'autres développeurs tentent de travailler sur le projet, car ces fichiers peuvent ne pas correspondre à leurs propres configurations.
 
+### Screenshot analyse de code hebdomadaire
+
+Les screens de l'analyse de code hebdomadaire sont dans le dossier "screenshot" du projet ranger par semaine.
+
 ### Auteur
 
 - [Justin burnel](https://www.github.com/Dakuken)
