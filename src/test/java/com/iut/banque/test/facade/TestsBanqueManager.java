@@ -4,6 +4,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -163,6 +164,28 @@ public class TestsBanqueManager {
 			fail("Une IllegalOperationException aurait dû être récupérée");
 		} catch (IllegalOperationException e) {
 		} catch (Exception te) {
+			fail("Une Exception " + te.getClass().getSimpleName() + " a été récupérée");
+		}
+	}
+
+	//test insertion d'un nouveau utilisateur pour voir si le mdp est bien crypté
+
+	@Test
+	public void TestCreationDunUtilisateurCrypte() {
+		try {
+			bm.loadAllClients();
+			String salt = BCrypt.gensalt();
+			String userHashPwd = BCrypt.hashpw("password", salt);
+			bm.createClient("t.test1", userHashPwd, "test1nom", "test1prenom", "test town", true, "4242424242");
+			//on regarde si le mdp est bien crypté
+			if (bm.getUserById("t.test1").getUserPwd().equals("password")) {
+				fail("Le mot de passe n'est pas crypté");
+			}
+		} catch (IllegalOperationException e) {
+			e.printStackTrace();
+			fail("IllegalOperationException récupérée : " + e.getStackTrace());
+		} catch (Exception te) {
+			te.printStackTrace();
 			fail("Une Exception " + te.getClass().getSimpleName() + " a été récupérée");
 		}
 	}
