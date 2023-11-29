@@ -276,4 +276,16 @@ public class BanqueFacade {
 			banqueManager.changeDecouvert(compte, nouveauDecouvert);
 		}
 	}
+
+	public void updateFailedAttempts(String username) {
+		loginManager.updateFailedAttempts(username);
+	}
+
+	public void resetFailedAttempts(String userCde) {
+		loginManager.resetFailedAttempts(userCde);
+	}
+
+	public boolean isAccountLocked(String userCde) {
+		return loginManager.isAccountLocked(userCde);
+	}
 }

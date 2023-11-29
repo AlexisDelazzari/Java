@@ -11,6 +11,9 @@ import javax.persistence.Table;
 
 import com.iut.banque.exceptions.IllegalFormatException;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 /**
  * Classe représentant un utilisateur quelconque.
  * 
@@ -68,6 +71,12 @@ public abstract class Utilisateur {
 	 */
 	@Column(name = "male")
 	private boolean male;
+
+	@Column(name = "nb_tentatives")
+	private int nbTentatives;
+
+	@Column(name = "fin_blocage_connexion")
+	private Timestamp finBlocageConnexion;
 
 	/**
 	 * @return String, le nom de l'utilisateur.
@@ -158,6 +167,22 @@ public abstract class Utilisateur {
 	 */
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+
+	public int getNbTentatives() {
+		return nbTentatives;
+	}
+
+	public void setNbTentatives(int nbTentatives) {
+		this.nbTentatives = nbTentatives;
+	}
+
+	public Timestamp getFinBlocageConnexion() {
+		return finBlocageConnexion;
+	}
+
+	public void setFinBlocageConnexion(Timestamp finBlocageConnexion) {
+		this.finBlocageConnexion = finBlocageConnexion;
 	}
 
 	/**
