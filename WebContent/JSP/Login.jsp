@@ -20,6 +20,10 @@
 		<s:form name="myFormRetour" action="retourAccueil" method="POST">
 			<s:submit name="Retour" value="Retour à l'accueil" />
 		</s:form>
+	<s:form name="myFormMail" action="envoieMail" method="POST">
+		<s:textfield label="Adresse e-mail" name="userEmail" type="email" />
+		<s:submit name="Envoie" value="Envoie Mail" />
+	</s:form>
 </body>
 <jsp:include page="/JSP/Footer.jsp" />
 </html>
