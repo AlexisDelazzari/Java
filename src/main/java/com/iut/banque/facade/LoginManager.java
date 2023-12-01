@@ -129,19 +129,25 @@ public class LoginManager {
 			int nbTentatives = user.getNbTentatives();
 			Timestamp finBlocage = user.getFinBlocageConnexion();
 
-			System.out.println(finBlocage);
+			System.out.println("Timestamp récupéré de la base de données : " + finBlocage);
 
 			// Vérifier si le nombre de tentatives est atteint
 			if (nbTentatives >= 3) {
 				user.setNbTentatives(0);
-				user.setFinBlocageConnexion(new Timestamp(System.currentTimeMillis() + 300000)); // 5 minutes
+				user.setFinBlocageConnexion(new Timestamp(System.currentTimeMillis() + 300000)); // 5 minute
+				dao.updateUser(user);
 				return true; // Le compte est bloqué
 			}
 
 			// Vérifier si la date de fin de blocage est postérieure à l'heure actuelle
-			if (finBlocage != null && finBlocage.compareTo(new Timestamp(System.currentTimeMillis())) > 0) {
-				user.setNbTentatives(0);
-				return true; // Le compte est bloqué
+			if (finBlocage != null) {
+				System.out.println("Timestamp actuel : " + new Timestamp(System.currentTimeMillis()));
+
+				if (finBlocage.compareTo(new Timestamp(System.currentTimeMillis())) > 0) {
+					user.setNbTentatives(0);
+					dao.updateUser(user);
+					return true; // Le compte est bloqué
+				}
 			}
 		} else {
 			System.out.println("Utilisateur non trouvé : " + userCde);

@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 @Table(name = "Utilisateur")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 15)
-public abstract class Utilisateur {
+public class Utilisateur {
 
 	/**
 	 * L'identifiant (unique) de l'utilisateur.

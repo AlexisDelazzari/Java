@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN"
 		"http://www.springframework.org/dtd/spring-beans-2.0.dtd">
-<beans>
+<beans
+>
 	<!-- ************************************************************ -->
 	<!-- * Fichier de configuration utilisé par le framework SPRING * -->
 	<!-- ************************************************************ -->
@@ -57,7 +58,7 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<!-- Injection de la Dao dans le BankManager par le setter -->
-	<bean id="banqueManager" class="com.iut.banque.facade.BanqueManager">
+	<bean id="loginManager" class="com.iut.banque.facade.LoginManager">
 		<property name="dao" ref="daoHibernate" />
 	</bean>
 
