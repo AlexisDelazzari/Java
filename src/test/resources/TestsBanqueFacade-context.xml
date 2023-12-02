@@ -62,5 +62,10 @@
 		<property name="dao" ref="daoHibernate" />
 	</bean>
 
+	<!-- Injection de la Dao dans le BankManager par le setter -->
+	<bean id="banqueManager" class="com.iut.banque.facade.BanqueManager">
+		<property name="dao" ref="daoHibernate" />
+	</bean>
+
 
 </beans>
