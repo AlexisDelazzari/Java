@@ -34,7 +34,6 @@ public class Connect extends ActionSupport {
 		ApplicationContext context = WebApplicationContextUtils
 				.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
 		this.banque = (BanqueFacade) context.getBean("banqueFacade");
-
 	}
 
 	/**
@@ -52,9 +51,23 @@ public class Connect extends ActionSupport {
 		}
 		userCde = userCde.trim();
 
+		if (isAccountLocked(userCde)) {
+			System.out.println("Le compte est bloqué. Réessayez plus tard.");
+			return "ERROR";
+		}
+
 		int loginResult;
 		try {
 			loginResult = banque.tryLogin(userCde, userPwd);
+
+			if (loginResult == LoginConstants.LOGIN_FAILED) {
+				updateFailedAttempts(userCde);
+			}
+			else if (loginResult == LoginConstants.USER_IS_CONNECTED || loginResult == LoginConstants.MANAGER_IS_CONNECTED) {
+				// Réinitialiser le nombre de tentatives, la date du dernier échec et la date de fin de blocage en cas de connexion réussie
+				resetFailedAttempts(userCde);
+			}
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			loginResult = LoginConstants.ERROR;
@@ -75,6 +88,7 @@ public class Connect extends ActionSupport {
 			return "ERROR";
 		}
 	}
+
 
 	/**
 	 * Getter du champ userCde
@@ -133,6 +147,20 @@ public class Connect extends ActionSupport {
 	 */
 	public Map<String, Compte> getAccounts() {
 		return ((Client) banque.getConnectedUser()).getAccounts();
+	}
+
+	private void updateFailedAttempts(String username) {
+		// Mettez à jour le nombre de tentatives infructueuses, la date du dernier échec et la date de fin de blocage dans la base de données
+		banque.updateFailedAttempts(username);
+	}
+
+	private void resetFailedAttempts(String userCde) {
+		// Mettez à jour le nombre de tentatives infructueuses et la date de fin de blocage dans la base de données
+		banque.resetFailedAttempts(userCde);
+	}
+
+	private boolean isAccountLocked(String userCde) {
+		return banque.isAccountLocked(userCde);
 	}
 
 	public String logout() {

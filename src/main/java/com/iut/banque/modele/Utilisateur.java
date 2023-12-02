@@ -11,6 +11,9 @@ import javax.persistence.Table;
 
 import com.iut.banque.exceptions.IllegalFormatException;
 
+import java.sql.Time;
+import java.sql.Timestamp;
+
 /**
  * Classe représentant un utilisateur quelconque.
  * 
@@ -27,7 +30,7 @@ import com.iut.banque.exceptions.IllegalFormatException;
 @Table(name = "Utilisateur")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING, length = 15)
-public abstract class Utilisateur {
+public class Utilisateur {
 
 	/**
 	 * L'identifiant (unique) de l'utilisateur.
@@ -74,7 +77,12 @@ public abstract class Utilisateur {
 
 	@Column(name = "codeForgotPwd")
 	private int codeForgotPwd;
+  
+  @Column(name = "nb_tentatives")
+	private int nbTentatives;
 
+	@Column(name = "fin_blocage_connexion")
+	private Timestamp finBlocageConnexion;
 
 	/**
 	 * @return the codeForgotPwd
@@ -86,6 +94,7 @@ public abstract class Utilisateur {
 	public void setCodeForgotPwd(int codeForgotPwd) {
 		this.codeForgotPwd = codeForgotPwd;
 	}
+
 
 	/**
 	 * @return String, le nom de l'utilisateur.
@@ -191,6 +200,22 @@ public abstract class Utilisateur {
 	 */
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+
+	public int getNbTentatives() {
+		return nbTentatives;
+	}
+
+	public void setNbTentatives(int nbTentatives) {
+		this.nbTentatives = nbTentatives;
+	}
+
+	public Timestamp getFinBlocageConnexion() {
+		return finBlocageConnexion;
+	}
+
+	public void setFinBlocageConnexion(Timestamp finBlocageConnexion) {
+		this.finBlocageConnexion = finBlocageConnexion;
 	}
 
 	/**

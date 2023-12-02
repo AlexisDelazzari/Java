@@ -61,6 +61,8 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `numClient` varchar(45) DEFAULT NULL,
   `mail` varchar(100) DEFAULT NULL,
   `codeForgotPwd` int DEFAULT 0,
+  `nb_tentatives` INT DEFAULT 0,
+  `fin_blocage_connexion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `numClient_UNIQUE` (`numClient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
