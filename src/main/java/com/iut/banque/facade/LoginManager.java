@@ -6,6 +6,8 @@ import com.iut.banque.modele.Gestionnaire;
 import com.iut.banque.modele.Utilisateur;
 import org.mindrot.jbcrypt.BCrypt;
 
+import java.sql.Timestamp;
+
 public class LoginManager {
 
 	private IDao dao;
@@ -87,4 +89,74 @@ public class LoginManager {
 	public void setSalt(String salt) {
 		this.salt = salt;
 	}
+
+	public void updateFailedAttempts(String username) {
+		Utilisateur user = dao.getUserById(username);
+
+		if (user != null) {
+			int currentAttempts = user.getNbTentatives();
+			user.setNbTentatives(currentAttempts + 1);
+
+			// Mettre à jour la base de données avec le nouveau nombre de tentatives
+			dao.updateUser(user);
+
+			System.out.println("tentatives : " + user.getNbTentatives());
+		} else {
+			System.out.println("Utilisateur non trouvé : " + username);
+		}
+	}
+
+	public void resetFailedAttempts(String userCde) {
+		Utilisateur user = dao.getUserById(userCde);
+
+		if (user != null) {
+			user.setNbTentatives(0);
+
+			// Mettre à jour la base de données avec le nouveau nombre de tentatives
+			dao.updateUser(user);
+
+			System.out.println("tentatives reset :" + user.getNbTentatives());
+		} else {
+			System.out.println("Utilisateur non trouvé : " + userCde);
+		}
+	}
+
+
+	public boolean isAccountLocked(String userCde) {
+		Utilisateur user = dao.getUserById(userCde);
+
+		if (user != null) {
+			int nbTentatives = user.getNbTentatives();
+			Timestamp finBlocage = user.getFinBlocageConnexion();
+
+			System.out.println("Timestamp récupéré de la base de données : " + finBlocage);
+
+			// Vérifier si le nombre de tentatives est atteint
+			if (nbTentatives >= 3) {
+				user.setNbTentatives(0);
+				user.setFinBlocageConnexion(new Timestamp(System.currentTimeMillis() + 300000)); // 5 minute
+				dao.updateUser(user);
+				return true; // Le compte est bloqué
+			}
+
+			// Vérifier si la date de fin de blocage est postérieure à l'heure actuelle
+			if (finBlocage != null) {
+				System.out.println("Timestamp actuel : " + new Timestamp(System.currentTimeMillis()));
+
+				if (finBlocage.compareTo(new Timestamp(System.currentTimeMillis())) > 0) {
+					user.setNbTentatives(0);
+					dao.updateUser(user);
+					return true; // Le compte est bloqué
+				}
+			}
+		} else {
+			System.out.println("Utilisateur non trouvé : " + userCde);
+		}
+
+		return false; // Le compte n'est pas bloqué
+	}
+
+
+
+
 }

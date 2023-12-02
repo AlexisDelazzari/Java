@@ -64,6 +64,8 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `male` bit(1) NOT NULL,
   `type` varchar(10) NOT NULL,
   `numClient` varchar(45) DEFAULT NULL,
+  `nb_tentatives` INT DEFAULT 0,
+  `fin_blocage_connexion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `numClient_UNIQUE` (`numClient`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
