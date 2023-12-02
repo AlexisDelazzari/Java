@@ -55,6 +55,20 @@
 			<result>/JSP/Index.jsp</result>
 		</action>
 
+		<action name="forgotPwd" class="com.iut.banque.controller.ForgotPwd" method="resetCodeSession">
+			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
+		</action>
+
+		<action name="resetPwd" class="com.iut.banque.controller.ForgotPwd" method="resetPwd">
+			<result name="SUCCESS">/JSP/Index.jsp</result>
+			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
+		</action>
+
+		<action name="sendMail" class="com.iut.banque.controller.ForgotPwd" method="sendMail">
+			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
+			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
+		</action>
+
 		<action name="redirectionLogin">
 			<result>/JSP/Login.jsp</result>
 		</action>

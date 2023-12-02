@@ -94,4 +94,5 @@
 		class="com.iut.banque.converter.AccountConverter" scope="singleton">
 		<constructor-arg ref="daoHibernate" />
 	</bean>
+
 </beans>

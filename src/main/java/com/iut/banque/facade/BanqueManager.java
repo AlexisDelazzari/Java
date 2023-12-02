@@ -207,9 +207,9 @@ public class BanqueManager {
 	 * @throws IllegalFormatException
 	 * @throws IllegalArgumentException
 	 */
-	public void createManager(String userId, String userPwd, String nom, String prenom, String adresse, boolean male)
+	public void createManager(String userId, String userPwd, String nom, String prenom, String adresse, boolean male, String mail)
 			throws TechnicalException, IllegalArgumentException, IllegalFormatException {
-		dao.createUser(nom, prenom, adresse, male, userId, userPwd, true, null);
+		dao.createUser(nom, prenom, adresse, male, userId, userPwd, true, null, mail);
 	}
 
 	/**
@@ -237,7 +237,7 @@ public class BanqueManager {
 	 * @throws IllegalArgumentException
 	 */
 	public void createClient(String userId, String userPwd, String nom, String prenom, String adresse, boolean male,
-			String numeroClient)
+			String numeroClient, String mail)
 			throws IllegalOperationException, TechnicalException, IllegalArgumentException, IllegalFormatException {
 		Map<String, Client> liste = this.getAllClients();
 		for (Map.Entry<String, Client> entry : liste.entrySet()) {
@@ -246,7 +246,7 @@ public class BanqueManager {
 						"Un client avec le numero de client " + numeroClient + " existe déjà");
 			}
 		}
-		dao.createUser(nom, prenom, adresse, male, userId, userPwd, false, numeroClient);
+		dao.createUser(nom, prenom, adresse, male, userId, userPwd, false, numeroClient, mail);
 
 	}
 
@@ -289,4 +289,25 @@ public class BanqueManager {
 		dao.updateAccount(compte);
 	}
 
+	/**
+	 * Méthode qui va appeler la DAO pour mettre à jour un utilisateur
+	 *
+	 * @param user
+	 *            Utilisateur correspondant à l'objet Utilisateur à mettre à
+	 *            jour
+	 * @param code
+	 * 		  int correspondant au code de vérification pour la réinitialisation du mot de passe
+	 * @throws TechnicalException
+	 * 		   si l'user est null ou si l'utilisateur n'est pas un
+	 * 		   utilisateur persistant.
+	 */
+	public void updateUser(Utilisateur user, int code) throws TechnicalException {
+		user.setCodeForgotPwd(code);
+		dao.updateUser(user);
+	}
+
+	public void updatePwd(Utilisateur user, String pwd) throws TechnicalException {
+		user.setUserPwd(pwd);
+		dao.updateUser(user);
+	}
 }

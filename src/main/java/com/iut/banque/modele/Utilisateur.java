@@ -72,11 +72,29 @@ public class Utilisateur {
 	@Column(name = "male")
 	private boolean male;
 
-	@Column(name = "nb_tentatives")
+	@Column(name = "mail")
+	private String mail;
+
+	@Column(name = "codeForgotPwd")
+	private int codeForgotPwd;
+  
+  @Column(name = "nb_tentatives")
 	private int nbTentatives;
 
 	@Column(name = "fin_blocage_connexion")
 	private Timestamp finBlocageConnexion;
+
+	/**
+	 * @return the codeForgotPwd
+	 */
+	public int getCodeForgotPwd() {
+		return codeForgotPwd;
+	}
+
+	public void setCodeForgotPwd(int codeForgotPwd) {
+		this.codeForgotPwd = codeForgotPwd;
+	}
+
 
 	/**
 	 * @return String, le nom de l'utilisateur.
@@ -139,6 +157,21 @@ public class Utilisateur {
 	}
 
 	/**
+	 * @return mail : l'adresse mail de l'utilisateur
+	 */
+	public String getMail() {
+		return mail;
+	}
+
+	/**
+	 * @param mail
+	 *            : l'adresse mail de l'utilisateur
+	 */
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	/**
 	 * @return userId : l'identifiant de l'utilisateur
 	 */
 	public String getUserId() {
@@ -198,8 +231,9 @@ public class Utilisateur {
 	 * @param male
 	 * @param userId
 	 * @param userPwd
+	 * @param mail
 	 */
-	public Utilisateur(String nom, String prenom, String adresse, boolean male, String userId, String userPwd) {
+	public Utilisateur(String nom, String prenom, String adresse, boolean male, String userId, String userPwd, String mail) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
@@ -207,6 +241,7 @@ public class Utilisateur {
 		this.male = male;
 		this.userId = userId;
 		this.userPwd = userPwd;
+		this.mail = mail;
 	}
 
 	/**
@@ -229,7 +264,7 @@ public class Utilisateur {
 	@Override
 	public String toString() {
 		return "Utilisateur [userId=" + userId + ", nom=" + nom + ", prenom=" + prenom + ", adresse=" + adresse
-				+ ", male=" + male + ", userPwd=" + userPwd + "]";
+				+ ", male=" + male + ", userPwd=" + userPwd + ", mail=" + mail + "]";
 	}
 
 }

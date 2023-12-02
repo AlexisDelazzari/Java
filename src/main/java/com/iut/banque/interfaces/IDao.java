@@ -109,7 +109,7 @@ public interface IDao {
 	 */
 	Utilisateur createUser(String nom, String prenom, String adresse,
 			boolean male, String usrId, String usrPwd, boolean manager,
-			String numClient) throws TechnicalException, IllegalArgumentException, IllegalFormatException;
+			String numClient,String mail) throws TechnicalException, IllegalArgumentException, IllegalFormatException;
 
 	/**
 	 * Méthode pour supprimer un utilisateur (Client ou Gestionnaire)
