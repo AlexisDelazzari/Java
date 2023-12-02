@@ -9,45 +9,53 @@ import java.util.Properties;
 
 public class EnvoieMailAction extends ActionSupport {
 
-    private String userEmail;
+    public static void main(String[] args) {
 
-    public String getUserEmail() {
-        return userEmail;
+        String destinataire = "destinataire@example.com";
+        String sujet = "Sujet du mail";
+        String corps = "Contenu du mail";
+
+
+        envoyerEmail(destinataire, sujet, corps);
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
-    }
+    public static void envoyerEmail(String destinataire, String sujet, String corps) {
 
-    public String execute() {
+        String host = "smtp.gmail.com";
+        String utilisateur = "testqualite2@gmail.com";
+        String motDePasse = "qualite2";
+
+
+        Properties proprietes = new Properties();
+        proprietes.put("mail.smtp.auth", "true");
+        proprietes.put("mail.smtp.starttls.enable", "true");
+        proprietes.put("mail.smtp.host", host);
+        proprietes.put("mail.smtp.port", "587");
+
+
+        Session session = Session.getInstance(proprietes, new Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication(utilisateur, motDePasse);
+            }
+        });
+
         try {
-            // Configurer les propriétés du serveur de messagerie
-            Properties props = new Properties();
-            props.put("mail.smtp.host", "smtp.gmail.com");
-            props.put("mail.smtp.port", "587");
-            props.put("mail.smtp.auth", "true");
 
-            // Session pour l'authentification
-            Session session = Session.getInstance(props, new javax.mail.Authenticator() {
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("votre_email", "votre_mot_de_passe");
-                }
-            });
-
-            // Créer le message
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress("votre_email"));
-            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(userEmail));
-            message.setSubject("Mot de passe oublier");
-            message.setText("Veuillez cliquer sur le lien suivant pour vous diriger verss le liens suivant");
+            message.setFrom(new InternetAddress(utilisateur));
+            message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(destinataire));
+            message.setSubject(sujet);
+            message.setText(corps);
 
-            // Envoyer le message
+
             Transport.send(message);
 
-            return SUCCESS;
-        } catch (Exception e) {
+            System.out.println("Email envoyé avec succès.");
+
+        } catch (MessagingException e) {
             e.printStackTrace();
-            return ERROR;
+            System.err.println("Erreur lors de l'envoi de l'email : " + e.getMessage());
         }
     }
 }

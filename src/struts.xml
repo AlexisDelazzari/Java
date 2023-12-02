@@ -298,8 +298,8 @@
 		</action>
 
 		<action name="envoieMail" class="com.iut.banque.controller.EnvoieMailAction">
-			<result name="success">/JSP/Login.jsp</result>
-			<result name="error">/JSP/Login.jsp</result>
+			<result name="success"></result>
+			<result name="error"></result>
 		</action>
 
 	</package>
