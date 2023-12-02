@@ -25,6 +25,7 @@ public class CreerUtilisateur extends ActionSupport {
 	private boolean male;
 	private boolean client;
 	private String numClient;
+	private String mail;
 	private String message;
 	private String result;
 
@@ -148,6 +149,21 @@ public class CreerUtilisateur extends ActionSupport {
 		this.numClient = numClient;
 	}
 
+	/**
+	 * @return the mail
+	 */
+	public String getMail() {
+		return mail;
+	}
+
+	/**
+	 * @param mail
+	 *            the mail to set
+	 */
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
 	private static final String CONFIG_FILE = "config.properties";
 	private static Properties properties;
 
@@ -225,9 +241,9 @@ public class CreerUtilisateur extends ActionSupport {
 		try {
 			String userHashPwd = BCrypt.hashpw(userPwd, salt);
 			if (client) {
-				banque.createClient(userId, userHashPwd, nom, prenom, adresse, male, numClient);
+				banque.createClient(userId, userHashPwd, nom, prenom, adresse, male, numClient, mail);
 			} else {
-				banque.createManager(userId, userHashPwd, nom, prenom, adresse, male);
+				banque.createManager(userId, userHashPwd, nom, prenom, adresse, male, mail);
 			}
 			this.message = "Le nouvel utilisateur avec le user id '" + userId + "' a bien été crée.";
 			this.result = "SUCCESS";

@@ -30,7 +30,7 @@ public class TestsBanqueManager {
 	public void TestCreationDunClient() {
 		try {
 			bm.loadAllClients();
-			bm.createClient("t.test1", "password", "test1nom", "test1prenom", "test town", true, "4242424242");
+			bm.createClient("t.test1", "password", "test1nom", "test1prenom", "test town", true, "4242424242","adelazzari8@gmail.com");
 		} catch (IllegalOperationException e) {
 			e.printStackTrace();
 			fail("IllegalOperationException récupérée : " + e.getStackTrace());
@@ -44,7 +44,7 @@ public class TestsBanqueManager {
 	public void TestCreationDunClientAvecDeuxNumerosDeCompteIdentiques() {
 		try {
 			bm.loadAllClients();
-			bm.createClient("t.test1", "password", "test1nom", "test1prenom", "test town", true, "0101010101");
+			bm.createClient("t.test1", "password", "test1nom", "test1prenom", "test town", true, "0101010101","adelazzari8@gmail.com");
 			fail();
 		} catch (IllegalOperationException e) {
 		} catch (Exception te) {
@@ -176,7 +176,7 @@ public class TestsBanqueManager {
 			bm.loadAllClients();
 			String salt = BCrypt.gensalt();
 			String userHashPwd = BCrypt.hashpw("password", salt);
-			bm.createClient("t.test1", userHashPwd, "test1nom", "test1prenom", "test town", true, "4242424242");
+			bm.createClient("t.test1", userHashPwd, "test1nom", "test1prenom", "test town", true, "4242424242","adelazzari8@gmail.com");
 			//on regarde si le mdp est bien crypté
 			if (bm.getUserById("t.test1").getUserPwd().equals("password")) {
 				fail("Le mot de passe n'est pas crypté");
