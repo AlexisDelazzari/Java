@@ -40,7 +40,7 @@ public class TestsBanqueFacade {
     @Test
     public void testResetFailedAttemptsSuccesful() {
         try {
-            bm.createClient("g.reset1", "password", "test1nom", "test1prenom", "test town", true, "1478542658");
+            bm.createClient("g.reset1", "password", "test1nom", "test1prenom", "test town", true, "1478542658","adelazzari8@gmail.com");
             bm.getUserById("g.reset1").setNbTentatives(3);
             lm.resetFailedAttempts("g.reset1");
             if (bm.getUserById("g.reset1").getNbTentatives() != 0) {
@@ -70,7 +70,7 @@ public class TestsBanqueFacade {
     public void testUpdateFailedAttemptsSuccessful() {
         try {
             // Créer un utilisateur pour les tests
-            bm.createClient("g.reset1", "password", "test1nom", "test1prenom", "test town", true, "1478542658");
+            bm.createClient("g.reset1", "password", "test1nom", "test1prenom", "test town", true, "1478542658","adelazzari8@gmail.com");
 
             // Récupérer l'utilisateur créé
             assertNotNull(bm.getUserById("g.reset1"));
@@ -104,7 +104,7 @@ public class TestsBanqueFacade {
     public void testIsAccountLockedNotBlocked() {
         try {
             // Créer un utilisateur non bloqué
-            bm.createClient("g.notblocked1", "password", "testnom", "testprenom", "test town", true, "1478542658");
+            bm.createClient("g.notblocked1", "password", "testnom", "testprenom", "test town", true, "1478542658","adelazzari8@gmail.com");
 
             // Vérifier que le compte n'est pas bloqué
             assertFalse(lm.isAccountLocked("g.notblocked1"));
@@ -118,7 +118,7 @@ public class TestsBanqueFacade {
     public void testIsAccountLockedBlockedAttempts() {
         try {
             // Créer un utilisateur avec 3 tentatives échouées
-            bm.createClient("g.attempts1", "password", "testnom", "testprenom", "test town", true, "1478542658");
+            bm.createClient("g.attempts1", "password", "testnom", "testprenom", "test town", true, "1478542658","adelazzari8@gmail.com");
             bm.getUserById("g.attempts1").setNbTentatives(4);
 
             // Vérifier que le compte est bloqué après 3 tentatives échouées
@@ -133,7 +133,7 @@ public class TestsBanqueFacade {
     public void testIsAccountLockedBlockedTimestamp() {
         try {
             // Créer un utilisateur bloqué jusqu'à dans 5 minutes
-            bm.createClient("g.timestamp1", "password", "testnom", "testprenom", "test town", true, "1478542658");
+            bm.createClient("g.timestamp1", "password", "testnom", "testprenom", "test town", true, "1478542658","adelazzari8@gmail.com");
             bm.getUserById("g.timestamp1").setFinBlocageConnexion(new Timestamp(System.currentTimeMillis() + 300000));
 
             // Vérifier que le compte est bloqué en raison du timestamp

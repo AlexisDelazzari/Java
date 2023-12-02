@@ -64,6 +64,8 @@ CREATE TABLE IF NOT EXISTS `Utilisateur` (
   `male` bit(1) NOT NULL,
   `type` varchar(10) NOT NULL,
   `numClient` varchar(45) DEFAULT NULL,
+  `mail` varchar(100) DEFAULT NULL,
+  `codeForgotPwd` int DEFAULT 0,
   `nb_tentatives` INT DEFAULT 0,
   `fin_blocage_connexion` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`userId`),
