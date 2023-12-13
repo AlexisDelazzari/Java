@@ -66,6 +66,7 @@ public class TestsForgotPwd {
         when(banqueManager.getUserById(anyString())).thenReturn(mockUser);
 
         // Exécution de la méthode à tester
+        forgotPwd.init();
         forgotPwd.setCodeUser("789");
         forgotPwd.setCodeRecu(5678);
         forgotPwd.setNouveauMdp("newPassword");

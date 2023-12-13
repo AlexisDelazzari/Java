@@ -30,6 +30,20 @@ public class ForgotPwd extends ActionSupport {
     private String message;
     private String result;
 
+    public ForgotPwd() {
+        // Le constructeur reste vide ou ne fait que des initialisations légères
+
+    }
+
+    // Méthode d'initialisation appelée au moment approprié
+    public void init() {
+        System.out.println("In init method from ForgotPwd class ");
+        ApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
+        this.bm = (BanqueManager) context.getBean("banqueManager");
+        this.salt = properties.getProperty("hash.salt");
+        this.email = properties.getProperty("email");
+        this.mdpemail = properties.getProperty("mdpemail");
+    }
 
     public String getCodeUser() {
         return codeUser;
@@ -114,7 +128,7 @@ public class ForgotPwd extends ActionSupport {
         }
     }
 
-    public ForgotPwd() {
+    /* public ForgotPwd() {
         System.out.println("In Constructor from ForgotPwd class ");
         ApplicationContext context = WebApplicationContextUtils
                 .getRequiredWebApplicationContext(ServletActionContext.getServletContext());
@@ -123,7 +137,7 @@ public class ForgotPwd extends ActionSupport {
         this.salt = properties.getProperty("hash.salt");
         this.email = properties.getProperty("email");
         this.mdpemail = properties.getProperty("mdpemail");
-    }
+    }*/
 
     public String resetCodeSession() {
         ActionContext.getContext().getSession().put("codeUser", null);
@@ -150,6 +164,11 @@ public class ForgotPwd extends ActionSupport {
     }
 
     public String resetPwd() throws Exception {
+        if (bm == null) {
+            // Initialisez bm correctement ici
+            ApplicationContext context = WebApplicationContextUtils.getRequiredWebApplicationContext(ServletActionContext.getServletContext());
+            this.bm = (BanqueManager) context.getBean("banqueManager");
+        }
         String codeUserSession = (String) ActionContext.getContext().getSession().get("codeUser");
         user = bm.getUserById(codeUserSession);
         if (codeRecu == 0 || nouveauMdp == null) {
@@ -157,6 +176,13 @@ public class ForgotPwd extends ActionSupport {
             this.message = "Veuillez saisir un code et un nouveau mot de passe.";
             return "ERROR";
         }
+
+        if (user == null) {
+            this.result = "ERROR";
+            this.message = "L'utilisateur associé au code de session est introuvable.";
+            return "ERROR";
+        }
+
         nouveauMdp = BCrypt.hashpw(nouveauMdp, salt);
 
         if (user.getCodeForgotPwd() == codeRecu) {
@@ -214,5 +240,9 @@ public class ForgotPwd extends ActionSupport {
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public void setBm(BanqueManager banqueManager) {
+        this.bm = banqueManager;
     }
 }
