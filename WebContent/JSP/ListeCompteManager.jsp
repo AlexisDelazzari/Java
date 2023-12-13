@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib prefix="s" uri="/struts-tags"%>
 
-<!--  Définition variables de début 
+<!--  Définition variables de début  -->
 <s:set var="aDecouvertTag" value="aDecouvert" />
 <s:if test="%{#bool_val == true}">
     TRUE</s:if>
@@ -12,8 +12,7 @@
 
 
 
-
-<html>
+<html lang="fr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Liste des comptes de la banque</title>
@@ -42,12 +41,13 @@
 		<p>Voici l'état des comptes de la banque :</p>
 	</s:else>
 	<table>
+		<caption></caption>
 		<s:iterator value="allClients">
 			<s:if test="(value.possedeComptesADecouvert() || !aDecouvert)">
 				<tr>
-					<td colspan="3"><b>Client :</b> <s:property
+					<th colspan="3"><b>Client :</b> <s:property
 							value="value.prenom" /> <s:property value="value.nom" /> (n°<s:property
-							value="value.numeroClient" />)</td>
+							value="value.numeroClient" />)</th>
 
 					<s:if test="(!aDecouvert)">
 						<td><s:url action="urlAddAccount" var="addAccount">

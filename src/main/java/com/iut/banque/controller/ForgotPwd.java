@@ -29,6 +29,7 @@ public class ForgotPwd extends ActionSupport {
     private String mdpemail;
     private String message;
     private String result;
+    private Random random = new Random();
 
 
     public String getCodeUser() {
@@ -140,8 +141,8 @@ public class ForgotPwd extends ActionSupport {
         }
 
         userMail = user.getMail();
-        int code = GenerateCode();
-        EnvoieMail(code, user);
+        int code = generateCode();
+        envoieMail(code, user);
         bm.updateUser(user, code);
         ActionContext.getContext().getSession().put("codeUser", codeUser);
         this.result = "SUCCESS";
@@ -171,13 +172,11 @@ public class ForgotPwd extends ActionSupport {
         return "ERROR";
     }
 
-    private int GenerateCode() {
-        Random rand = new Random();
-        int code = rand.nextInt(999999);
-        return code;
+    private int generateCode() {
+        return this.random.nextInt(999999);
     }
 
-    private void EnvoieMail(int code, Utilisateur user) throws Exception {
+    private void envoieMail(int code, Utilisateur user) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
