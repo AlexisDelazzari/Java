@@ -152,11 +152,19 @@ public class ForgotPwd extends ActionSupport {
     public String resetPwd() throws Exception {
         String codeUserSession = (String) ActionContext.getContext().getSession().get("codeUser");
         user = bm.getUserById(codeUserSession);
-        if (codeRecu == 0 || nouveauMdp == null) {
+        if (codeRecu == 0) {
             this.result = "ERROR";
-            this.message = "Veuillez saisir un code et un nouveau mot de passe.";
+            this.message = "Veuillez saisir un code valide.";
             return "ERROR";
         }
+
+        System.out.println("nouveauMdp: " + nouveauMdp);
+        if (nouveauMdp == null || nouveauMdp.length() < 8) {
+            this.result = "ERROR";
+            this.message = "Veuillez saisir un mot de passe valide(minimum 8 caractères).";
+            return "ERROR";
+        }
+
         nouveauMdp = BCrypt.hashpw(nouveauMdp, salt);
 
         if (user.getCodeForgotPwd() == codeRecu) {
