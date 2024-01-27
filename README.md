@@ -91,7 +91,9 @@ Il vous faut installer [Tomcat](https://tomcat.apache.org/download-90.cgi), de l
 
 Une fois tomcat installer nous nous rendont dans le fichier tomcat-user.xml qui se trouve dans le fichier conf, une fois dans ce fichier on décommente et modifier la partie uername et password. Une fois cela fait nous allons pouvoir ajouter le .war préalablement générer ce qui va crée un répertoire au sein du serveur.
 
+## Pour tester la fonctionnalité mot de passe oublié
 
+Il vous faudra effectuer un changement d'adresse e-mail des utilisateurs dans la base de données. En effet, actuellement, c'est mon adresse e-mail personnel qui est utilisée pour recevoir les e-mails. Veuillez remplacer dans la base de données l'adresse e-mail "adelazzari8@gmail.com" par votre adresse e-mail.
 
 ## Différence poids
 
