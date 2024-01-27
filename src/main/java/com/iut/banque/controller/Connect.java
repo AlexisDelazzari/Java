@@ -3,6 +3,8 @@ package com.iut.banque.controller;
 import java.util.Map;
 
 import org.apache.struts2.ServletActionContext;
+import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 

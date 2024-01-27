@@ -193,6 +193,7 @@ public class DaoHibernate implements IDao {
 		if (userId == null || userPwd == null) {
 			return false;
 		} else {
+			session = sessionFactory.openSession();
 			userId = userId.trim();
 			if ("".equals(userId) || "".equals(userPwd)) {
 				return false;

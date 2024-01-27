@@ -13,7 +13,6 @@ public class Banque {
 	private Map<String, Compte> accounts;
 
 	public Banque() {
-		// Do nothing because of X and Y.
 	}
 
 	/**
