@@ -35,13 +35,6 @@
 			<result name="FAILED">Failed.jsp</result>
 		</action>
 
-		<action name="controller.Connect.login" class="com.iut.banque.controller.Connect" method="login">
-			<result name="SUCCESS">/JSP/Connect.jsp</result>
-			<result name="SUCCESSMANAGER">/JSP/Connect-Manager.jsp</result>
-			<result name="ERROR">/JSP/Connect-error.jsp</result>
-			<!-- Additional result configurations as needed -->
-		</action>
-
 		<!-- Permet un retour 'static' vers la page principal pour les clients -->
 		<action name="retourTableauDeBordClient" class="com.iut.banque.controller.Connect">
 			<result>/JSP/Connect.jsp</result>
@@ -50,6 +43,13 @@
 		<!-- Permet un retour 'static' vers la page principal pour le manager -->
 		<action name="retourTableauDeBordManager" class="com.iut.banque.controller.Connect">
 			<result>/JSP/Connect-Manager.jsp</result>
+		</action>
+
+		<action name="controller.Connect.login" class="com.iut.banque.controller.Connect" method="login">
+			<result name="SUCCESS">/JSP/Connect.jsp</result>
+			<result name="SUCCESSMANAGER">/JSP/Connect-Manager.jsp</result>
+			<result name="ERROR">/JSP/Connect-error.jsp</result>
+			<!-- Additional result configurations as needed -->
 		</action>
 
 
@@ -62,12 +62,16 @@
 			<result>/JSP/Index.jsp</result>
 		</action>
 
-		<action name="forgotPwd">
-			<result>/JSP/ForgotPwd.jsp</result>
+		<action name="forgotPwd" class="com.iut.banque.controller.ForgotPwd" method="resetCodeSession">
+			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
 		</action>
 
-		<action name="envoieCodeUser" class="com.iut.banque.controller.ForgotPwd"
-				method="sendMail">
+		<action name="resetPwd" class="com.iut.banque.controller.ForgotPwd" method="resetPwd">
+			<result name="SUCCESS">/JSP/Index.jsp</result>
+			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
+		</action>
+
+		<action name="sendMail" class="com.iut.banque.controller.ForgotPwd" method="sendMail">
 			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
 			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
 		</action>
