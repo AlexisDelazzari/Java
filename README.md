@@ -23,7 +23,7 @@ Au cas ou vous ne seriez pas sur la branche principale vous pouvez faire :
 
 ## Installation  
 
-Pour compiler notre projet Java il nous faut installer la version de 1.8 de JDK (Java Developement Kit), 
+Pour compiler notre projet Java il nous faut installer la version de 17 de JDK (Java Developement Kit), 
 ensuite nous devont ajouter la variables d'environnement JAVA_HOME avec le lien vers le JDK puis mettre dans la variable d'environnement PATH le lien vers JAVA_HOME.
 
 Il nous fallu aussi installer le fichier bin de maven, pour cela nous avons télécharger {https://maven.apache.org/download.cgi}, puis nous allons aussi créé une variables d'environnement relatif. {../Maven\apache-maven-3.9.4\bin}
