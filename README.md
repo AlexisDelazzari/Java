@@ -101,6 +101,7 @@ Le projet peut avoir une erreur DAO au lancement, pour cela il faut aller dans l
 
 - `<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>`
 
+ATTENTION pour les mails enlever l'anti virus sinon il ne pourra pas envoyer de mail.
 ## Différence poids
 
 La différence de poids entre les sources compressées est attribuable au dossier 'target'. La suppression de ce dossier dans la nouvelle source est justifiée, car 'target' est un répertoire de build du projet. Il est créé localement à chaque compilation pour stocker les fichiers temporaires et les résultats de la compilation. Par conséquent, inclure le dossier 'target' dans la source n'est pas nécessaire et peut augmenter la taille de l'archive inutilement. Il est préférable de se concentrer sur les fichiers de configuration essentiels, car ces fichiers sont suffisants pour déployer et exécuter le projet. Cela permet également de réduire la taille des fichiers sources, ce qui est utile pour le stockage et le partage du projet.
