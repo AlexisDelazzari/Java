@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC
-        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
-        "http://struts.apache.org/dtds/struts-2.0.dtd">
+		"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+		"http://struts.apache.org/dtds/struts-2.0.dtd">
 
 
 <struts>
@@ -9,7 +9,7 @@
 	<!-- * Fichier de configuration du Framework STRUTS * -->
 	<!-- ************************************************ -->
 
-	<!-- Permet d'activer le mode de developpement. Celui-ci donne des informations 
+	<!-- Permet d'activer le mode de developpement. Celui-ci donne des informations
 		supplémentaires. -->
 	<constant name="struts.devMode" value="true" />
 
@@ -20,7 +20,7 @@
 		<!-- 2ème paramètre indique la class elle-même -->
 		<!-- 3ème paramètre indique la méthode à lancer -->
 		<!-- Un succès redirige vers une page comportant le nom de la class -->
-		<!-- Un echec redirige vers une page comportant le nom de la class prefixée 
+		<!-- Un echec redirige vers une page comportant le nom de la class prefixée
 			par '-error' -->
 		<!-- Toutes les combinaisons sont donc possibles -->
 
@@ -35,6 +35,13 @@
 			<result name="FAILED">Failed.jsp</result>
 		</action>
 
+		<action name="controller.Connect.login" class="com.iut.banque.controller.Connect" method="login">
+			<result name="SUCCESS">/JSP/Connect.jsp</result>
+			<result name="SUCCESSMANAGER">/JSP/Connect-Manager.jsp</result>
+			<result name="ERROR">/JSP/Connect-error.jsp</result>
+			<!-- Additional result configurations as needed -->
+		</action>
+
 		<!-- Permet un retour 'static' vers la page principal pour les clients -->
 		<action name="retourTableauDeBordClient" class="com.iut.banque.controller.Connect">
 			<result>/JSP/Connect.jsp</result>
@@ -47,7 +54,7 @@
 
 
 		<action name="logout" class="com.iut.banque.controller.Connect"
-			method="logout">
+				method="logout">
 			<result name="SUCCESS">/JSP/Index.jsp</result>
 		</action>
 
@@ -55,16 +62,12 @@
 			<result>/JSP/Index.jsp</result>
 		</action>
 
-		<action name="forgotPwd" class="com.iut.banque.controller.ForgotPwd" method="resetCodeSession">
-			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
+		<action name="forgotPwd">
+			<result>/JSP/ForgotPwd.jsp</result>
 		</action>
 
-		<action name="resetPwd" class="com.iut.banque.controller.ForgotPwd" method="resetPwd">
-			<result name="SUCCESS">/JSP/Index.jsp</result>
-			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
-		</action>
-
-		<action name="sendMail" class="com.iut.banque.controller.ForgotPwd" method="sendMail">
+		<action name="envoieCodeUser" class="com.iut.banque.controller.ForgotPwd"
+				method="sendMail">
 			<result name="SUCCESS">/JSP/ForgotPwd.jsp</result>
 			<result name="ERROR">/JSP/ForgotPwd.jsp</result>
 		</action>
@@ -86,12 +89,12 @@
 		<!-- Suppression de compte et d'utilisateur -->
 
 		<action name="deleteAccount" class="com.iut.banque.controller.ListeCompteManager"
-			method="deleteAccount">
+				method="deleteAccount">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="compteInfo">%{compteInfo}</param>
 				<param name="client">%{client.userId}</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
@@ -100,7 +103,7 @@
 				<param name="compte">%{compte}</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">TECHNICAL</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
@@ -109,18 +112,18 @@
 				<param name="compte">%{compte}</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">NONEMPTYACCOUNT</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">true</param>
 			</result>
 		</action>
 
 		<action name="deleteUser" class="com.iut.banque.controller.ListeCompteManager"
-			method="deleteUser">
+				method="deleteUser">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="userInfo">%{userInfo}</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -128,7 +131,7 @@
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">TECHNICAL</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -136,7 +139,7 @@
 				<param name="actionName">urlResultatSuppression</param>
 				<param name="client">%{client.userId}</param>
 				<param name="errorMessage">NONEMPTYACCOUNT</param>
-				<!-- Account est un boolean qui indique si la suppression est sur un 
+				<!-- Account est un boolean qui indique si la suppression est sur un
 					compte ou un utilisateur -->
 				<param name="account">false</param>
 			</result>
@@ -154,7 +157,7 @@
 		</action>
 
 		<action name="changerDecouvertAutoriseAction" class="com.iut.banque.controller.DetailCompteEdit"
-			method="changementDecouvert">
+				method="changementDecouvert">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">editAccount</param>
 				<param name="compte">%{compte}</param>
@@ -176,10 +179,10 @@
 			</result>
 		</action>
 
-		
+
 		<!-- Création de compte -->
 		<action name="addAccount" class="com.iut.banque.controller.CreerCompte"
-			method="creationCompte">
+				method="creationCompte">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">urlAddAccount</param>
 				<param name="client">%{client.userId}</param>
@@ -211,7 +214,7 @@
 		<!-- Opération sur les comptes -->
 
 		<action name="creditAction" class="com.iut.banque.controller.DetailCompte"
-			method="credit">
+				method="credit">
 			<result name="SUCCESS">/JSP/DetailCompte.jsp</result>
 			<result name="ERROR" type="redirectAction">
 				<param name="actionName">urlDetail</param>
@@ -227,7 +230,7 @@
 
 
 		<action name="debitAction" class="com.iut.banque.controller.DetailCompte"
-			method="debit">
+				method="debit">
 			<result name="SUCCESS">/JSP/DetailCompte.jsp</result>
 			<result name="ERROR" type="redirectAction">
 				<param name="actionName">urlDetail</param>
@@ -245,9 +248,9 @@
 				<param name="error">NEGATIVEAMOUNT</param>
 			</result>
 		</action>
-		
+
 		<action name="creditActionEdit" class="com.iut.banque.controller.DetailCompteEdit"
-			method="credit">
+				method="credit">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">editAccount</param>
 				<param name="compte">%{compte}</param>
@@ -266,7 +269,7 @@
 
 
 		<action name="debitActionEdit" class="com.iut.banque.controller.DetailCompteEdit"
-			method="debit">
+				method="debit">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">editAccount</param>
 				<param name="compte">%{compte}</param>
@@ -290,7 +293,7 @@
 
 		<!-- Ajout d'un utilisateur -->
 		<action name="ajoutUtilisateur" class="com.iut.banque.controller.CreerUtilisateur"
-			method="creationUtilisateur">
+				method="creationUtilisateur">
 			<result name="SUCCESS" type="redirectAction">
 				<param name="actionName">urlAjoutUtilisateur</param>
 				<param name="result">SUCCESS</param>

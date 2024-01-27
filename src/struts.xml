@@ -51,6 +51,13 @@
 			<result name="SUCCESS">/JSP/Index.jsp</result>
 		</action>
 
+		<action name="controller.Connect.login" class="com.iut.banque.controller.Connect" method="login">
+			<result name="SUCCESS">/JSP/Connect.jsp</result>
+			<result name="SUCCESSMANAGER">/JSP/Connect-Manager.jsp</result>
+			<result name="ERROR">/JSP/Connect-error.jsp</result>
+			<!-- Additional result configurations as needed -->
+		</action>
+
 		<action name="retourAccueil">
 			<result>/JSP/Index.jsp</result>
 		</action>
@@ -172,7 +179,7 @@
 			</result>
 		</action>
 
-		
+
 		<!-- Création de compte -->
 		<action name="addAccount" class="com.iut.banque.controller.CreerCompte"
 			method="creationCompte">
@@ -241,7 +248,7 @@
 				<param name="error">NEGATIVEAMOUNT</param>
 			</result>
 		</action>
-		
+
 		<action name="creditActionEdit" class="com.iut.banque.controller.DetailCompteEdit"
 			method="credit">
 			<result name="SUCCESS" type="redirectAction">
