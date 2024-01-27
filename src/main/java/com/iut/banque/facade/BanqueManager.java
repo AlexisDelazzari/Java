@@ -306,8 +306,18 @@ public class BanqueManager {
 		dao.updateUser(user);
 	}
 
+	public void resetPwd(Utilisateur user, String pwd, int code) throws TechnicalException {
+		if (user.getCodeForgotPwd() == code) {
+			user.setUserPwd(pwd);
+			user.setCodeForgotPwd(0);
+			dao.updateUser(user);
+		}
+	}
+
 	public void updatePwd(Utilisateur user, String pwd) throws TechnicalException {
 		user.setUserPwd(pwd);
 		dao.updateUser(user);
 	}
+
+
 }

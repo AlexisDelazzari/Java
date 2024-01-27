@@ -188,6 +188,68 @@ public class TestsBanqueManager {
 			fail("Une Exception " + te.getClass().getSimpleName() + " a été récupérée");
 		}
 	}
+	//on test la foncitonnalité mot de passe oublié
+	@Test
+	public void changementMdpWithGoodCode(){
+		try {
+			bm.loadAllClients();
+			bm.loadAllClients();
+			String salt = BCrypt.gensalt();
+			String userHashPwd = BCrypt.hashpw("password", salt);
+			bm.createClient("t.test1", userHashPwd, "test1nom", "test1prenom", "test town", true, "4242424242","adelazzari8@gmail.com");
+			bm.updateUser(bm.getUserById("t.test1"), 123456);
 
+			String pwd  = "password";
 
+			var user = bm.getUserById("t.test1");
+			bm.resetPwd(user, pwd, 123456);
+
+			System.out.println(user.getUserPwd());
+			if(user.getUserPwd().equals(userHashPwd)){
+				fail("Le mot de passe n'a pas été changé");
+			}
+
+			if(user.getCodeForgotPwd() != 0){
+				fail("Le code forgot n'a pas été remis à 0");
+			}
+		} catch (IllegalOperationException e) {
+			e.printStackTrace();
+			fail("IllegalOperationException récupérée : " + e.getStackTrace());
+		} catch (Exception te) {
+			te.printStackTrace();
+			fail("Une Exception " + te.getClass().getSimpleName() + " a été récupérée");
+		}
+	}
+
+	@Test
+	public void changementMdpWithBadCode(){
+		try {
+			bm.loadAllClients();
+			bm.loadAllClients();
+			String salt = BCrypt.gensalt();
+			String userHashPwd = BCrypt.hashpw("password", salt);
+			bm.createClient("t.test1", userHashPwd, "test1nom", "test1prenom", "test town", true, "4242424242","adelazzari8@gmail.com");
+			bm.updateUser(bm.getUserById("t.test1"), 123456);
+
+			String pwd  = "password";
+
+			var user = bm.getUserById("t.test1");
+			bm.resetPwd(user, pwd, 123);
+
+			System.out.println(user.getUserPwd());
+			if(!user.getUserPwd().equals(userHashPwd)){
+				fail("Le mot de passe a été changé avec un mauvais code");
+			}
+
+			if(user.getCodeForgotPwd() == 0){
+				fail("Le code forgot a pas été remis à 0 avec un mauvais code");
+			}
+		} catch (IllegalOperationException e) {
+			e.printStackTrace();
+			fail("IllegalOperationException récupérée : " + e.getStackTrace());
+		} catch (Exception te) {
+			te.printStackTrace();
+			fail("Une Exception " + te.getClass().getSimpleName() + " a été récupérée");
+		}
+	}
 }
